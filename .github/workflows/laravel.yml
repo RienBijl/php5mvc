@@ -29,4 +29,4 @@ jobs:
     - name: Migrate database
       run: php artisan migrate --env="testing"
     - name: Run tests
-      run: /vendor/bin/phpunit
+      run: vendor/bin/phpunit
