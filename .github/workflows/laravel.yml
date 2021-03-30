@@ -27,6 +27,6 @@ jobs:
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
     - name: Migrate database
-      run: php artisan migrate --env="testing"
+      run: php artisan migrate --seed --env="testing"
     - name: Run tests
       run: vendor/bin/phpunit

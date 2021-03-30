@@ -19,9 +19,9 @@ class CreateBandsTable extends Migration
             $table->string('name');
             $table->mediumText('description');
             $table->mediumText('biography');
-            $table->string('header');
-            $table->string('text_color');
-            $table->string('background_color');
+            $table->string('header')->nullable();
+            $table->string('text_color')->nullable();
+            $table->string('background_color')->nullable();
 
 
         });
