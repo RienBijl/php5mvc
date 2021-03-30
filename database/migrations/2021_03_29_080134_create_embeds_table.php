@@ -15,7 +15,16 @@ class CreateEmbedsTable extends Migration
     {
         Schema::create('embeds', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+
+            $table->string('watch_id');
+            $table->bigInteger('band_id')->unsigned();
+
+            $table->foreign('band_id')
+                ->references('id')
+                ->on('bands')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+
         });
     }
 
