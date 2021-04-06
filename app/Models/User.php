@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -31,6 +32,18 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    /**
+     * Bands relation
+     *
+     * @return BelongsToMany
+     * @author Rien Bijl <me@rienbijl.nl>
+     * @since 0.1
+     */
+    public function bands()
+    {
+        return $this->belongsToMany(Band::class, 'user_band');
+    }
 
     /**
      * The attributes that should be cast to native types.
