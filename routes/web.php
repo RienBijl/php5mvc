@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +14,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+#group band
+Route::get('/', [\App\Http\Controllers\BandController::class, 'index']);
+#endgroup band
+
+#group auth
+Route::middleware('auth')->group(function() {
+
+    #group band
+
+    #endgroup band
+
+    #group embed
+
+    #endgroup embed
+
 });
-
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+#endgroup auth
