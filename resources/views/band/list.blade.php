@@ -4,7 +4,7 @@
 @section('content')
 
     <div class="container">
-        <h3>Displaying bands that fit: <strong>{{$query}}</strong></h3>
+        <h3>Displaying bands that are <strong>{{$query}}</strong></h3>
         <hr>
 
         @if ($bands->isNotEmpty())

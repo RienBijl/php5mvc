@@ -14,21 +14,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-#group band
-Route::get('/', [\App\Http\Controllers\BandController::class, 'index']);
-#endgroup band
+#region band
+Route::get('/', [\App\Http\Controllers\BandController::class, 'index'])->name('band.index');
+Route::get('/band/{id}', [\App\Http\Controllers\BandController::class, 'band'])->name('band.band');
+#endregion
 
-#group auth
+#region auth
 Route::middleware('auth')->group(function() {
 
-    #group band
+    #region user
+    Route::get('/user/dashboard', [\App\Http\Controllers\UserController::class, 'dashboard'])->name('user.dashboard');
+    Route::get('/user/dashboard/bands', [\App\Http\Controllers\UserController::class, 'bands'])->name('user.bands');
+    #endregion
 
-    #endgroup band
+    #region band
+    Route::get('/band/create', [\App\Http\Controllers\BandController::class, 'create'])->name('band.create');
+    #endregion
 
-    #group embed
+    #region embed
 
-    #endgroup embed
+    #endregion
 
 });
 Auth::routes();
-#endgroup auth
+#endregion
